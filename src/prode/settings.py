@@ -16,6 +16,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = "usuarios.Usuario"
+
+LOGIN_REDIRECT_URL = '/mis-grupos'
+LOGOUT_REDIRECT_URL = 'iniciar-sesion/'
 
 # Application definition
 
@@ -26,7 +30,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'equipos'
+    'equipos',
+    'usuarios'
 ]
 
 MIDDLEWARE = [
@@ -66,7 +71,7 @@ WSGI_APPLICATION = 'prode.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'prode_info',
+        'NAME': 'prode_info_new',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
         'HOST': 'localhost',

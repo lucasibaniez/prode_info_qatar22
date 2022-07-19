@@ -16,10 +16,11 @@ def inicio(request):
     }
     return render(request, template_name, ctx)
 
+"""
 def login(request):
     return render(request, "login.html", {})
 
-"""
+
 Vista basada en funcion
 def mis_grupos(request):
     return render(request, "mis_grupos.html", {})
