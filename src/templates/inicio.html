@@ -1,74 +1,18 @@
-{% load static %}
+{% extends 'base/base.html' %}
 
-<!doctype html>
-<html lang="en" class="h-100">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Prode - Info Comision 4</title>
+{% block contenido %}
+	<div class="container">
+		<h1 class="mt-5">Bienvenido al mejor sitio de Prode</h1>
 
-		<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-		<link href="{% static 'css/sticky-footer-navbar.css' %}" rel="stylesheet">
-		<link href="{% static 'css/styles.css' %}" rel="stylesheet">
-	</head>
-	<body class="d-flex flex-column h-100">
-		<header>
-			<!-- Fixed navbar -->
-			<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-				<div class="container-fluid">
-					<a class="navbar-brand" href="#">Prode</a>
-					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon"></span>
-					</button>
-					<div class="collapse navbar-collapse" id="navbarCollapse">
-						<ul class="navbar-nav me-auto mb-2 mb-md-0">
-							<li class="nav-item">
-								<a class="nav-link active" aria-current="page" href="#">Inicio</a>
-							</li>
-							<!-- 
-							<li class="nav-item">
-								<a class="nav-link" href="#">Link</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link disabled">Disabled</a>
-							</li>
-							-->
-						</ul>
-						<a href="{% url 'login' %}"><button type="button" class="btn btn-primary btn-sm">Iniciar sesion</button></a>
+	</div>
+	<p>Hola {{nombre}}</p>
+	<p>Equipos Participantes:</p>
 
-					</div>
-				</div>
-			</nav>
-		</header>
-
-		<!-- Begin page content -->
-		<main class="flex-shrink-0">
-			<div class="container">
-				<h1 class="mt-5">Bienvenido al mejor sitio de Prode</h1>
-
+	{% for e in equipos %}
+		<div class="card" style="width: 18rem;">
+			<div class="card-body">
+				<h5 class="card-title">{{e.nombre}}</h5>
 			</div>
-			<p>Hola {{nombre}}</p>
-			<p>Equipos Participantes:</p>
-
-			{% for e in equipos %}
-				<div class="card" style="width: 18rem;">
-					<div class="card-body">
-						<h5 class="card-title">{{e.nombre}}</h5>
-					</div>
-				</div>
-			{% endfor %}
-				
-		</main>
-
-		<footer class="footer mt-auto py-3 bg-light">
-			<div class="container">
-				<span class="text-muted">Sitio desarrollado en la comision 4 del Informatorio - 2022.</span>
-			</div>
-		</footer>
-
-
-		<!-- JavaScript Bundle with Popper -->
-		<script src="{% static 'js/bootstrap.js' %}" type="text/javascript"></script>
-
-	</body>
-</html>
+		</div>
+	{% endfor %}
+{% endblock contenido %}
