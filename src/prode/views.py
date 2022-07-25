@@ -6,14 +6,8 @@ from equipos.models import Equipo
 
 def inicio(request):
     template_name="inicio.html"
-
-    equipos = Equipo.objects.filter(nombre="Argentina")#.all() # query -> Consultas mediante el ORM
-     
-
-    ctx={
-        'equipos': equipos,
-        'nombre': "Octavio"
-    }
+    
+    ctx={}
     return render(request, template_name, ctx)
 
 """

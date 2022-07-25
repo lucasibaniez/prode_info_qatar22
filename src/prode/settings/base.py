@@ -18,8 +18,9 @@ ALLOWED_HOSTS = []
 
 AUTH_USER_MODEL = "usuarios.Usuario"
 
+LOGIN_URL = '/iniciar-sesion'
 LOGIN_REDIRECT_URL = '/mis-grupos'
-LOGOUT_REDIRECT_URL = 'iniciar-sesion/'
+#LOGOUT_REDIRECT_URL = '/iniciar-sesion'
 
 # Application definition
 
@@ -64,22 +65,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'prode.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'prode_info_new',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-}
-
-
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
@@ -116,9 +101,6 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),
-)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
