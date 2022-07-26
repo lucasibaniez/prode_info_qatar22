@@ -5,7 +5,12 @@
     <h1>Crear Equipo</h1>
 
     <form method="POST">{% csrf_token %}
-        {{form.as_p}}
+        
+        {% include 'includes/error_forms.html' %}
+        {% include 'includes/forms.html' %}   
+
+        
+            
 
         <button type="submit" class="btn btn-success">Crear</button>
 
