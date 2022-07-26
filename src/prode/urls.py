@@ -13,5 +13,6 @@ urlpatterns = [
     path('mis-grupos/', views.mis_grupos, name="mis_grupos"),
 
     # Includes
-    path("equipos/", include("equipos.urls"))
+    path("equipos/", include("equipos.urls")),
+    path("usuarios/", include("usuarios.urls"))
 ]

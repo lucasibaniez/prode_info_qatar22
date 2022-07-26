@@ -4,6 +4,8 @@ from django.contrib.auth.decorators import login_required
 
 from equipos.models import Equipo
 
+from usuarios.models import Usuario
+
 
 def inicio(request):
     template_name="inicio.html"

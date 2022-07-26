@@ -1,0 +1,18 @@
+{% extends 'base/base.html' %}
+
+{% block contenido %}
+    <br><br><br><br><br>
+    <h1>Registro de usuarios</h1>
+
+    <form method="POST">{% csrf_token %}
+        
+        {% include 'includes/error_forms.html' %}
+        {% include 'includes/forms.html' %}   
+
+        
+            
+
+        <button type="submit" class="btn btn-success">Crear</button>
+
+    </form>
+{% endblock contenido %}
