@@ -13,15 +13,17 @@ class Crear(LoginRequiredMixin, CreateView):
 
     def get_success_url(self, **kwargs):
         return reverse('equipos:listar')
+    
+         
 
 class Listar(LoginRequiredMixin, ListView):
     template_name="equipos/listar.html"
     model=Equipo        
     context_object_name = "equipos"
-
+    paginate_by=2
 
     def get_queryset(self):
-        return Equipo.objects.all()
+        return Equipo.objects.all().order_by("id")
 
 class Actualizar(LoginRequiredMixin, UpdateView):
     template_name="equipos/actualizar.html"
