@@ -1,7 +1,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.urls import reverse
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic import ListView
 
 from .forms import EquipoForm
@@ -21,3 +21,13 @@ class Listar(LoginRequiredMixin, ListView):
     context_object_name = "equipos"
 
 
+    def get_queryset(self):
+        return Equipo.objects.all()
+
+class Actualizar(LoginRequiredMixin, UpdateView):
+    template_name="equipos/actualizar.html"
+    model=Equipo
+    form_class = EquipoForm
+
+    def get_success_url(self, **kwargs):
+        return reverse('equipos:listar')

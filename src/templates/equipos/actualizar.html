@@ -1,0 +1,15 @@
+{% extends 'base/base.html' %}
+
+{% block contenido %}
+    <br><br><br><br><br>
+    <h1>Actualizar Equipo</h1>
+
+    <form method="POST">{% csrf_token %}
+        
+        {% include 'includes/error_forms.html' %}
+        {% include 'includes/forms.html' %}   
+
+        <button type="submit" class="btn btn-success">Actualizar</button>
+
+    </form>
+{% endblock contenido %}
