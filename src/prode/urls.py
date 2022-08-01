@@ -14,5 +14,6 @@ urlpatterns = [
 
     # Includes
     path("equipos/", include("equipos.urls")),
-    path("usuarios/", include("usuarios.urls"))
+    path("usuarios/", include("usuarios.urls")),
+    path("grupos/", include("grupos.urls"))
 ]
