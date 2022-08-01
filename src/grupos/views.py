@@ -12,9 +12,13 @@ class Listar(LoginRequiredMixin, ListView):
     model=Grupo        
     context_object_name = "grupos"
 
+    def get_context_data(self, **kwargs):
+        context=super().get_context_data(**kwargs)
+        # context["dato"] = "esto es un dato"
+        return context
 
     def get_queryset(self):
-        return Grupo.objects.filter(creador=self.request.user)
+        return self.request.user.mis_grupos.all() # Grupo.objects.filter(creador=self.request.user)
 
 class Crear(LoginRequiredMixin, CreateView):
     model = Grupo
