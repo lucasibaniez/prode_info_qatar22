@@ -1,10 +1,45 @@
+
 {% extends 'base/base.html' %}
+
+{% load static %}
+
+{% block css_extras %}
+    <style>
+        .logo-equipo{
+            width: 250px;
+            height: 100px;
+        }
+    </style>
+{% endblock css_extras %}
 
 {% block contenido %}
     <br><br><br><br><br>
     <h1>Lista de Equipo</h1>
     <!-- <a href="{% url 'equipos:listar' %}">Volver</a> -->
     <a href="{% url 'equipos:crear' %}">Crear</a> 
+
+    <div class="row">
+        {% for equipo in equipos %}  
+            <div class="col col-md-3">
+                <div class="card">
+
+                    {% if equipo.logo %}
+                        <img class="logo-equipo" src="{{equipo.logo.url}}" class="card-img-top">
+                    {% else %}
+                        <img src="{% static 'img/defaults/logo_default.jpg' %}" class="card-img-top" >
+                    {% endif %}
+                        
+                    
+                    <div class="card-body">
+                    <h5 class="card-title">{{equipo.nombre}}</h5>
+                    </div>
+                </div>
+            </div>
+        {% endfor %} 
+    </div>
+    
+      
+    <!--
     <table class="table table-striped table-hover">
         <thead>
             <tr>
@@ -23,5 +58,7 @@
             {% endfor %}
         </tbody>
     </table>
+    -->
+    <br>
     {% include 'includes/paginado.html' %}
 {% endblock contenido %}

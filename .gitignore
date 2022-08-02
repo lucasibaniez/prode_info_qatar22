@@ -1,1 +1,4 @@
 *.pyc
+src/media/*.jpg
+src/media/*.jpeg
+src/media/*.png

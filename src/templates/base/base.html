@@ -10,6 +10,8 @@ v{% load static %}
 		<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
 		<link href="{% static 'css/sticky-footer-navbar.css' %}" rel="stylesheet">
 		<link href="{% static 'css/styles.css' %}" rel="stylesheet">
+		{% block css_extras %}
+		{% endblock css_extras %}
 	</head>
 	<body class="d-flex flex-column h-100">
 		<header>

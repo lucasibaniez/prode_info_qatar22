@@ -20,7 +20,7 @@ class Listar(LoginRequiredMixin, ListView):
     template_name="equipos/listar.html"
     model=Equipo        
     context_object_name = "equipos"
-    paginate_by=2
+    paginate_by=8
 
     def get_queryset(self):
         return Equipo.objects.all().order_by("id")
