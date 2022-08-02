@@ -8,6 +8,8 @@ class Grupo(models.Model):
 
     participantes = models.ManyToManyField(Usuario) # OneToOne
 
+    portada = models.ImageField(upload_to="portadas_grupos", null=True, blank=True)
+
     class Meta:
         db_table = "grupos"
 

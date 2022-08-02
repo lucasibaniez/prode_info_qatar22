@@ -4,7 +4,7 @@
     <br><br><br><br><br>
     <h1>Crear Grupo</h1>
 
-    <form method="POST">{% csrf_token %}
+    <form method="POST" enctype="multipart/form-data">{% csrf_token %}
         
         {% include 'includes/error_forms.html' %}
         {% include 'includes/forms.html' %}   
