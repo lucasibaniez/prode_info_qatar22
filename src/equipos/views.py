@@ -3,6 +3,8 @@ from django.urls import reverse
 from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic import ListView
 
+from core.mixins import SuperUserRequiredMixin
+
 from .forms import EquipoForm
 from .models import Equipo
 
@@ -16,7 +18,7 @@ class Crear(LoginRequiredMixin, CreateView):
     
          
 
-class Listar(LoginRequiredMixin, ListView):
+class Listar(LoginRequiredMixin, SuperUserRequiredMixin, ListView):
     template_name="equipos/listar.html"
     model=Equipo        
     context_object_name = "equipos"

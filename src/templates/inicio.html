@@ -5,7 +5,7 @@
 		<h1 class="mt-5">Bienvenido al mejor sitio de Prode</h1>
 
 	</div>
-	<p>Hola {{nombre}}</p>
+	<p>Hola {{user.username}} {{user.is_superuser}}</p>
 	<p>Equipos Participantes:</p>
 
 	{% for e in equipos %}
