@@ -1,0 +1,10 @@
+{% extends 'base/base.html' %}
+
+{% block contenido %}
+    <br><br><br><br><br>
+    <h1>Detalle</h1>
+    <p>Nombre del grupo: {{grupo.nombre}}</p>
+    <p>Visibilidad: {{grupo.get_visibilidad_display}}</p>
+
+    <a href="{% url 'grupos:inscripciones' user.id grupo.id %}"> Postularme</a>
+{% endblock contenido %}

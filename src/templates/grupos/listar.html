@@ -17,6 +17,7 @@
                 <tr>
                     <td>{{grupo.nombre}}</td>
                     <td><a href="">Editar</a></td>
+                    <td><a href="{% url 'grupos:ver' grupo.id %}">Ver</a></td>
                 </tr>
             {% endfor %}
         </tbody>

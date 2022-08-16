@@ -16,7 +16,14 @@
     <br><br><br><br><br>
     <h1>Lista de Equipo</h1>
     <!-- <a href="{% url 'equipos:listar' %}">Volver</a> -->
-    <a href="{% url 'equipos:crear' %}">Crear</a> 
+
+    
+    {% if user.es_administrador %}
+        <a href="{% url 'equipos:crear' %}">Crear</a>  
+    {% endif %}
+        
+
+    
 
     <div class="row">
         {% for equipo in equipos %}  

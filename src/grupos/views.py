@@ -1,10 +1,14 @@
+from http.client import HTTPResponse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic import ListView
 from django.urls import reverse
+from django.shortcuts import render
+from django.http import HttpResponseRedirect
+from usuarios.models import Usuario
 
 from .forms import GrupoForm
-from .models import Grupo
+from .models import Grupo, GrupoUsuarios
 
 
 class Listar(LoginRequiredMixin, ListView):
@@ -37,3 +41,18 @@ class Crear(LoginRequiredMixin, CreateView):
         kwargs=super(Crear, self).get_form_kwargs()  
         kwargs["usuario_id"]=self.request.user.id
         return kwargs
+
+def ver(request, pk):
+    template_name="grupos/ver.html"
+    ctx={
+        "grupo": Grupo.objects.get(id=pk)
+    }
+    return render(request, template_name, ctx) 
+
+
+def inscripciones(request, id_grupo, id_usuario):
+    gu=GrupoUsuarios.objects.create(
+        grupo=Grupo.objects.get(id=id_grupo),
+        usuario=Usuario.objects.get(id=id_usuario)  
+    )
+    return HttpResponseRedirect(reverse('grupos:listar'))

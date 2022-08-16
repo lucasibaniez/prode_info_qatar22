@@ -8,7 +8,7 @@ from core.mixins import SuperUserRequiredMixin
 from .forms import EquipoForm
 from .models import Equipo
 
-class Crear(LoginRequiredMixin, CreateView):
+class Crear(LoginRequiredMixin, SuperUserRequiredMixin, CreateView):
     model = Equipo
     form_class = EquipoForm
     template_name = "equipos/crear.html"

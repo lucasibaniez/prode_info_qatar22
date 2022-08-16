@@ -8,7 +8,7 @@ class GrupoForm(forms.ModelForm):
 
     class  Meta:
         model = Grupo
-        fields = ["nombre", "participantes", "portada"]
+        fields = ["nombre", "participantes", "portada", "visibilidad"]
     
     def __init__(self, usuario_id, *args, **kwargs):
         super(GrupoForm, self).__init__(*args, **kwargs)
