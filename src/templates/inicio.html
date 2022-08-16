@@ -5,13 +5,14 @@
 		<h1 class="mt-5">Bienvenido al mejor sitio de Prode</h1>
 
 	</div>
-	<p>Hola {{user.username}} {{user.is_superuser}}</p>
+	<p>Hola {{user.username| title}} {{user.is_superuser}}</p>
+	{% lorem %}
 	<p>Equipos Participantes:</p>
-
+	<a href="{% url 'admin:index' %}">Ir al administrador</a>
 	{% for e in equipos %}
 		<div class="card" style="width: 18rem;">
 			<div class="card-body">
-				<h5 class="card-title">{{e.nombre}}</h5>
+				<h5 class="card-title">{{e.nombre | title }}</h5>
 			</div>
 		</div>
 	{% endfor %}

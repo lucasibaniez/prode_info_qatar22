@@ -1,4 +1,6 @@
-v{% load static %}
+{% load static %}
+
+{% load equipos_tag %}
 
 <!doctype html>
 <html lang="en" class="h-100">
@@ -54,7 +56,17 @@ v{% load static %}
 
 		<!-- Begin page content -->
 		<main class="flex-shrink-0">
-            
+
+			<br><br><br><br><br><br><br><br><br>
+			{% saludar "Lucas" %}
+			{% get_equipos as equipos %}
+
+			<p>{{ user.first_name|nombre_default:"Este usuario no tiene nombre asigando"}}</p>
+			<li>
+			{% for e in equipos %}
+				<ul>{{e.nombre}}</ul>
+			{% endfor %}
+			</li>
             {% block contenido %}
                 
             {% endblock contenido %}
